@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ListItem.css';
+import styles from './ListItem.module.scss';
 
 const ListItem = ({ image, name, description, twitterLink }) => (
-    <li className='listItem__wrapper'>
-        <img src={image} className='listItem__image' alt={name} />
+    <li className={styles.wrapper}>
+        <img src={image} className={styles.image} alt={name} />
         <div>
-            <h2 className='listItem__name'>{name}</h2>
-            <p className='listItem__description'>{description}</p>
-            <a href={twitterLink} target='_blank' className='listItem__button'>visit twitter page</a>
+            <h2 className={styles.name}>{name}</h2>
+            <p className={styles.description}>{description}</p>
+            <a href={twitterLink} target="_blank" className={styles.button} rel="noopener noreferrer">
+                visit twitter page</a>
         </div>
     </li>
 );
@@ -16,12 +17,12 @@ const ListItem = ({ image, name, description, twitterLink }) => (
 ListItem.propTypes = {
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     twitterLink: PropTypes.string.isRequired,
 };
 
 ListItem.defaultProps = {
-    description: 'One of React creators.',
+    description: 'One of the React creators.',
 };
 
 export default ListItem;
