@@ -28,4 +28,4 @@ export const twitterAccounts = [
         description: 'Making software development more accessible · Husband, Father, Latter-day Saint, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters · #JS',
         twitterLink: 'https://twitter.com/kentcdodds',
     },
-]
+];
