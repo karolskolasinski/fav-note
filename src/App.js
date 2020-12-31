@@ -5,8 +5,10 @@ import danAbramovImage from './assets/images/danabramov.jpg';
 import ryanFlorenceImage from './assets/images/ryanflorence.jpg';
 import michaelJacksonImage from './assets/images/michaeljackson.jpg';
 import kentCDoddsImage from './assets/images/kentcdodds.jpg';
+import Form from './components/Form/Form';
 
-const initialStateArray = [
+
+const initialStateItems = [
     {
         image: danAbramovImage,
         name: 'Dan Abramov',
@@ -35,13 +37,31 @@ const initialStateArray = [
 
 class App extends React.Component {
     state = {
-        items: [...initialStateArray],
+        items: [...initialStateItems],
+    };
+
+    addItem = (e) => {
+        e.preventDefault();
+
+        const newItem = {
+            name: e.target[0].value,
+            twitterLink: e.target[1].value,
+            image: e.target[2].value,
+            description: e.target[3].value,
+        };
+
+        this.setState(prevState => ({
+            items: [...prevState.items, newItem],
+        }));
+
+        e.target.reset();
     };
 
     render() {
         return (
             <div>
                 <ListWrapper items={this.state.items} />
+                <Form submitFn={this.addItem} />
             </div>
         );
     }
