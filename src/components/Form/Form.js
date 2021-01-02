@@ -1,30 +1,15 @@
 import React from 'react';
 import styles from './Form.module.scss';
+import Input from '../Input/Input';
 
 const Form = ({ submitFn }) => (
     <div className={styles.wrapper}>
         <h2>Add new twitter account</h2>
         <form autoComplete='off' className={styles.form} onSubmit={submitFn}>
-            <div className={styles.formItem}>
-                <input type='text' name='name' id='name' placeholder=' ' maxLength='30' required />
-                <label htmlFor='name'>Name</label>
-                <div className={styles.formsItemBar} />
-            </div>
-            <div className={styles.formItem}>
-                <input type='text' name='link' id='link' placeholder=' ' required />
-                <label htmlFor='link'>Link</label>
-                <div className={styles.formsItemBar} />
-            </div>
-            <div className={styles.formItem}>
-                <input type='text' name='image' id='image' placeholder=' ' />
-                <label htmlFor='image'>Image</label>
-                <div className={styles.formsItemBar} />
-            </div>
-            <div className={styles.formItem}>
-                <textarea name='description' id='description' placeholder=' ' required />
-                <label htmlFor='description'>Description</label>
-                <div className={styles.formsItemBar} />
-            </div>
+            <Input name='name' label='Name' maxLength={30} />
+            <Input name='link' label='Twitter Link' />
+            <Input name='image' label='Image' />
+            <Input tag='textarea' name='description' label='Description' />
             <button className={styles.formButton} type='submit'>add new item</button>
         </form>
     </div>
