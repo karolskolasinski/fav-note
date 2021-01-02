@@ -52,14 +52,3 @@ input:not(:placeholder-shown) + label, textarea:not(:placeholder-shown) + label 
 input:focus ~ .formsItemBar, textarea:focus ~ .formsItemBar {
     background: #1E58FF;
 }
-
-.formButton {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    text-decoration: none;
-    padding: 7px 12px;
-    font-weight: 500;
-    background: none;
-    border: 2px solid #1E58FF;
-    color: #1E58FF;
-}
