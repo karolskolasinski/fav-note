@@ -17,7 +17,7 @@ const Input = ({ tag: Tag, name, label, maxLength }) => (
     </div>
 );
 
-Input.PropTypes = {
+Input.propTypes = {
     tag: PropTypes.string,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,

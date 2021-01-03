@@ -21,8 +21,9 @@ label {
     font-size: 16px;
 }
 
-input, textarea {
+.input, .textarea {
     color: #7d7d7d;
+    font-family: 'Montserrat', 'sans-serif';
     font-size: 16px;
     border: none;
     line-height: 22px;
@@ -30,7 +31,7 @@ input, textarea {
     background: none;
 }
 
-textarea {
+.textarea {
     resize: none;
     min-height: 150px;
 }
