@@ -1,11 +1,11 @@
 import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
+import ListWrapper from '../../components/List/List';
 import './index.css';
-import danAbramovImage from './assets/images/danabramov.jpg';
-import ryanFlorenceImage from './assets/images/ryanflorence.jpg';
-import michaelJacksonImage from './assets/images/michaeljackson.jpg';
-import kentCDoddsImage from './assets/images/kentcdodds.jpg';
-import Form from './components/Form/Form';
+import danAbramovImage from '../../assets/images/danabramov.jpg';
+import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
+import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
+import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
+import Form from '../../components/Form/Form';
 
 
 const initialStateItems = [
@@ -35,7 +35,7 @@ const initialStateItems = [
     },
 ];
 
-class App extends React.Component {
+class Root extends React.Component {
     state = {
         items: [...initialStateItems],
     };
@@ -67,4 +67,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Root;
