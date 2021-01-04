@@ -11,7 +11,7 @@ import ArticleView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
 import TwitterView from '../TwitterView/TwitterView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navigation from '../../components/Navigation/Navigation';
+import Header from '../../components/Header/Header';
 
 
 const initialStateItems = [
@@ -67,7 +67,7 @@ class Root extends React.Component {
         return (
             <BrowserRouter>
                 <>
-                    <Navigation />
+                    <Header />
                     <Switch>
                         <Route exact path='/' component={TwitterView} />
                         <Route path='/articles' component={ArticleView} />

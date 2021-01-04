@@ -1,0 +1,12 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 140px 1fr 120px;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 800;
+    color: #1e58ff;
+}
