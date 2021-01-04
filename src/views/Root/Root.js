@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ListWrapper from '../../components/List/List';
 import './index.css';
@@ -6,6 +7,11 @@ import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
 import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
 import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 import Form from '../../components/Form/Form';
+import ArticleView from '../ArticlesView/ArticlesView';
+import NotesView from '../NotesView/NotesView';
+import TwitterView from '../TwitterView/TwitterView';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navigation from '../../components/Navigation/Navigation';
 
 
 const initialStateItems = [
@@ -59,10 +65,21 @@ class Root extends React.Component {
 
     render() {
         return (
-            <div>
-                <ListWrapper items={this.state.items} />
-                <Form submitFn={this.addItem} />
-            </div>
+            <BrowserRouter>
+                <>
+                    <Navigation />
+                    <Switch>
+                        <Route exact path='/' component={TwitterView} />
+                        <Route path='/articles' component={ArticleView} />
+                        <Route path='/notes' component={NotesView} />
+                        {/*<ArticleView>aaa</ArticleView>*/}
+                        {/*<NotesView>bbb</NotesView>*/}
+                        {/*<TwitterView>ccc</TwitterView>*/}
+                        {/*<ListWrapper items={this.state.items} />*/}
+                        {/*<Form submitFn={this.addItem} />*/}
+                    </Switch>
+                </>
+            </BrowserRouter>
         );
     }
 }
