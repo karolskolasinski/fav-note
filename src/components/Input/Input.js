@@ -11,7 +11,7 @@ const Input = ({ tag: Tag, name, label, maxLength }) => (
              id={name}
              maxLength={maxLength}
              placeholder=' '
-             required />
+             required={name !== 'image'} />
         <label htmlFor={name}>{label}</label>
         <div className={styles.formsItemBar} />
     </div>
