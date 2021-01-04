@@ -1,8 +1,8 @@
+/* eslint-disable indent */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.scss';
 
-/* eslint-disable indent */
 const Input = ({ tag: Tag, name, label, maxLength }) => (
     <div className={styles.formItem}>
         <Tag className={Tag === 'textarea' ? styles.textarea : styles.input}
