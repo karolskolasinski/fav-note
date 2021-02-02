@@ -12,6 +12,7 @@ import NotesView from '../NotesView/NotesView';
 import TwitterView from '../TwitterView/TwitterView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
 
 
 const initialStateItems = [
@@ -78,6 +79,7 @@ class Root extends React.Component {
                         {/*<ListWrapper items={this.state.items} />*/}
                         {/*<Form submitFn={this.addItem} />*/}
                     </Switch>
+                    <Modal />
                 </>
             </BrowserRouter>
         );
