@@ -7,9 +7,10 @@ import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
 import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
 import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 import Form from '../../components/Form/Form';
+import RootView from '../RootView/RootView';
+import TwitterView from '../TwitterView/TwitterView';
 import ArticleView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
-import TwitterView from '../TwitterView/TwitterView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
@@ -85,7 +86,8 @@ class Root extends React.Component {
                 <>
                     <Header openModalFn={this.openModal} />
                     <Switch>
-                        <Route exact path='/' component={TwitterView} />
+                        <Route exact path='/' component={RootView} />
+                        <Route exact path='/twitters' component={TwitterView} />
                         <Route path='/articles' component={ArticleView} />
                         <Route path='/notes' component={NotesView} />
                         {/*<ArticleView>aaa</ArticleView>*/}
