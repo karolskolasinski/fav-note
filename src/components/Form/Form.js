@@ -47,9 +47,12 @@ class Form extends React.Component {
                                changeFn={() => this.handleRadioButtonChange(types.note)}>Note</Radio>
                     </div>
 
-                    <Input name='name' label='Name' maxLength={30} />
-                    <Input name='link' label='Twitter Link' />
-                    <Input name='image' label='Image' />
+                    <Input name='name' label={activeOption === types.twitter ? 'Twitter Name' : 'Title'}
+                           maxLength={30} />
+                    {activeOption !== types.note ?
+                        <Input name='link' label={activeOption === types.twitter ? 'Twitter Link' : 'Link'} /> : null}
+                    {activeOption === types.twitter ?
+                        <Input name='image' label='Image' /> : null}
                     <Input tag='textarea' name='description' label='Description' />
                     <Button>add new item</Button>
                 </form>
