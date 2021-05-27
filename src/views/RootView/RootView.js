@@ -1,12 +1,17 @@
 import React from 'react';
-import AppContext from '../../context';
+import styles from './RootView.module.scss';
+import Title from '../../components/Title/Title';
 
 const RootView = () => (
-    <AppContext.Consumer>
-        {(context) => (
-            <p>ROOT {context.name}</p>
-        )}
-    </AppContext.Consumer>
+    <div className={styles.wrapper}>
+        <h1>Hi!</h1>
+        <p>This is a demo app of the</p>
+        <Title children={'FavNote.'} />
+        <ul>
+            <li>created in 2021 by <span className={styles.name}>Karol Skolasiński</span></li>
+        </ul>
+        <p>Enjoy!</p>
+    </div>
 
 );
 

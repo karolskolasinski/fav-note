@@ -47,7 +47,9 @@ class Form extends React.Component {
                 {(context) => (
                     <div className={styles.wrapper}>
                         <Title>Add new {descriptions[type]}</Title>
-                        <form autoComplete='off' className={styles.form} onSubmit={(e) => context.addItem(e, this.state)}>
+                        <form autoComplete='off'
+                              className={styles.form}
+                              onSubmit={(e) => context.addItem(e, this.state)}>
                             <div className={`${styles.formOptions} ${styles.formWrapper}`}>
                                 <Radio id={types.twitter}
                                        checked={type === types.twitter}
@@ -66,10 +68,11 @@ class Form extends React.Component {
                                    value={this.state.title}
                                    name='title'
                                    label={type === types.twitter ? 'Twitter Name' : 'Title'}
-                                   maxLength={30} />
+                                   maxLength={100} />
 
                             {type !== types.note ?
-                                <Input onChange={this.handleInputChange} value={this.state.link}
+                                <Input onChange={this.handleInputChange}
+                                       value={this.state.link}
                                        name='link'
                                        label={type === types.twitter ? 'Twitter Link' : 'Link'} /> : null}
 

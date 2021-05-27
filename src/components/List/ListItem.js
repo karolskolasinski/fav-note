@@ -4,7 +4,7 @@ import styles from './ListItem.module.scss';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
 
-const ListItem = ({ image, title, description, twitterLink }) => {
+const ListItem = ({ image, title, description, link, type }) => {
     const ImageTag = image ? 'img' : 'div';
 
     return (
@@ -13,7 +13,7 @@ const ListItem = ({ image, title, description, twitterLink }) => {
             <div>
                 <Title>{title}</Title>
                 <p className={styles.description}>{description}</p>
-                <Button href={twitterLink}>visit twitter page</Button>
+                {link && <Button href={link}>visit {type} page</Button>}
             </div>
         </li>
     );
@@ -29,7 +29,6 @@ ListItem.propTypes = {
 ListItem.defaultProps = {
     image: null,
     link: null,
-    // description: 'One of the React creators.',
 };
 
 export default ListItem;
