@@ -6,10 +6,14 @@ const Button = ({ children, href, secondary, ...props }) => {
 
     return (
         <>
-            {href ?
-                (<a href={href} target="_blank" className={buttonClass} rel="noopener noreferrer">{children}</a>) :
-                (<button className={buttonClass} {...props}>{children}</button>)
-            }
+            {href ? (
+                <a href={href}
+                   target="_blank"
+                   className={buttonClass}
+                   rel="noopener noreferrer">{children}</a>
+            ) : (
+                <button className={buttonClass} {...props}>{children}</button>
+            )}
         </>
     );
 };

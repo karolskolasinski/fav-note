@@ -1,12 +1,6 @@
 import React from 'react';
 import './root.scss';
 import AppContext from '../../context';
-
-import danAbramovImage from '../../assets/images/danabramov.jpg';
-import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
-import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
-import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
-
 import RootView from '../RootView/RootView';
 import TwittersView from '../TwitterView/TwittersView';
 import ArticleView from '../ArticlesView/ArticlesView';
@@ -14,6 +8,10 @@ import NotesView from '../NotesView/NotesView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
+import danAbramovImage from '../../assets/images/danabramov.jpg';
+import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
+import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
+import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 
 class Root extends React.Component {
     state = {

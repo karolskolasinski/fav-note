@@ -7,7 +7,6 @@ const TwittersView = () => (
         {(context) => (
             <List items={context.twitter} />
         )}
-
     </AppContext.Consumer>
 );
 
