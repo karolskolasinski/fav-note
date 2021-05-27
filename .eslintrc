@@ -15,7 +15,7 @@
         "keyword-spacing": 2,
         "no-useless-escape": "off",
         "no-prototype-builtins": "off",
-        "indent": [ "error", 4, { "SwitchCase": 1 }],
+        "indent": [ "warn", 4, { "SwitchCase": 1 }],
         "linebreak-style": [ "error", "unix" ],
         "quotes": [ "error", "single" ],
         "semi": [ "error", "always" ],
