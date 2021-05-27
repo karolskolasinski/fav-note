@@ -8,7 +8,7 @@ import AppContext from '../../context';
 // import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 
 import RootView from '../RootView/RootView';
-import TwitterView from '../TwitterView/TwitterView';
+import TwittersView from '../TwitterView/TwittersView';
 import ArticleView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -87,7 +87,7 @@ class Root extends React.Component {
                     <Header openModalFn={this.openModal} />
                     <Switch>
                         <Route exact path='/' component={RootView} />
-                        <Route exact path='/twitters' component={TwitterView} />
+                        <Route exact path='/twitters' component={TwittersView} />
                         <Route path='/articles' component={ArticleView} />
                         <Route path='/notes' component={NotesView} />
                     </Switch>
