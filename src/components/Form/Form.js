@@ -47,7 +47,7 @@ class Form extends React.Component {
                 {(context) => (
                     <div className={styles.wrapper}>
                         <Title>Add new {descriptions[type]}</Title>
-                        <form autoComplete='off' className={styles.form} onSubmit={context.addItem}>
+                        <form autoComplete='off' className={styles.form} onSubmit={(e) => context.addItem(e, this.state)}>
                             <div className={`${styles.formOptions} ${styles.formWrapper}`}>
                                 <Radio id={types.twitter}
                                        checked={type === types.twitter}
