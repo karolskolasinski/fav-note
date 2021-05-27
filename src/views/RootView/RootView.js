@@ -1,7 +1,13 @@
 import React from 'react';
+import AppContext from '../../context';
 
 const RootView = () => (
-    <p>ROOT</p>
+    <AppContext.Consumer>
+        {(context) => (
+            <p>ROOT {context.name}</p>
+        )}
+    </AppContext.Consumer>
+
 );
 
 export default RootView;

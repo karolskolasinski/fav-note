@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import ListWrapper from '../../components/List/List';
 import './index.css';
-import danAbramovImage from '../../assets/images/danabramov.jpg';
-import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
-import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
-import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
-import Form from '../../components/Form/Form';
+import AppContext from '../../context';
+
+// import danAbramovImage from '../../assets/images/danabramov.jpg';
+// import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
+// import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
+// import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
+
 import RootView from '../RootView/RootView';
 import TwitterView from '../TwitterView/TwitterView';
 import ArticleView from '../ArticlesView/ArticlesView';
@@ -16,55 +16,60 @@ import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
 
 
-const initialStateItems = [
-    {
-        image: danAbramovImage,
-        name: 'Dan Abramov',
-        description: 'Working on @reactjs. The demo guy.',
-        twitterLink: 'https://twitter.com/dan_abramov',
-    },
-    {
-        image: ryanFlorenceImage,
-        name: 'Ryan Florence',
-        description: 'Making React accessible for users and developers at https://reach.tech . Online learning, workshops, OSS, and consulting.',
-        twitterLink: 'https://twitter.com/ryanflorence',
-    },
-    {
-        image: michaelJacksonImage,
-        name: 'Michael Jackson',
-        description: 'Maker. Co-author of React Router. Working on @ReactTraining. Created @unpkg. Head over heels for @cari.',
-        twitterLink: 'https://twitter.com/mjackson',
-    },
-    {
-        image: kentCDoddsImage,
-        name: 'Kent C. Dodds',
-        description: 'Making software development more accessible · Husband, Father, Latter-day Saint, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters · #JS',
-        twitterLink: 'https://twitter.com/kentcdodds',
-    },
-];
+// const initialStateItems = [
+//     {
+//         image: danAbramovImage,
+//         name: 'Dan Abramov',
+//         description: 'Working on @reactjs. The demo guy.',
+//         twitterLink: 'https://twitter.com/dan_abramov',
+//     },
+//     {
+//         image: ryanFlorenceImage,
+//         name: 'Ryan Florence',
+//         description: 'Making React accessible for users and developers at https://reach.tech . Online learning, workshops, OSS, and consulting.',
+//         twitterLink: 'https://twitter.com/ryanflorence',
+//     },
+//     {
+//         image: michaelJacksonImage,
+//         name: 'Michael Jackson',
+//         description: 'Maker. Co-author of React Router. Working on @ReactTraining. Created @unpkg. Head over heels for @cari.',
+//         twitterLink: 'https://twitter.com/mjackson',
+//     },
+//     {
+//         image: kentCDoddsImage,
+//         name: 'Kent C. Dodds',
+//         description: 'Making software development more accessible · Husband, Father, Latter-day Saint, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters · #JS',
+//         twitterLink: 'https://twitter.com/kentcdodds',
+//     },
+// ];
 
 class Root extends React.Component {
     state = {
-        items: [...initialStateItems],
-        // isModalOpen: false,
-        isModalOpen: true,
+        items: {
+            twitters: [],
+            articles: [],
+            notes: [],
+        },
+        isModalOpen: false,
     };
 
     addItem = (e) => {
         e.preventDefault();
 
-        const newItem = {
-            name: e.target[0].value,
-            twitterLink: e.target[1].value,
-            image: e.target[2].value,
-            description: e.target[3].value,
-        };
+        console.log('!!!!!!!!!!!!!!');
 
-        this.setState(prevState => ({
-            items: [...prevState.items, newItem],
-        }));
-
-        e.target.reset();
+        // const newItem = {
+        //     name: e.target[0].value,
+        //     twitterLink: e.target[1].value,
+        //     image: e.target[2].value,
+        //     description: e.target[3].value,
+        // };
+        //
+        // this.setState(prevState => ({
+        //     items: [...prevState.items, newItem],
+        // }));
+        //
+        // e.target.reset();
     };
 
     openModal = () => {
@@ -81,24 +86,23 @@ class Root extends React.Component {
 
     render() {
         const { isModalOpen } = this.state;
+        const contextElements = {
+            ...this.state,
+            addItem: this.addItem,
+        };
 
         return (
             <BrowserRouter>
-                <>
+                <AppContext.Provider value={contextElements}>
                     <Header openModalFn={this.openModal} />
                     <Switch>
                         <Route exact path='/' component={RootView} />
                         <Route exact path='/twitters' component={TwitterView} />
                         <Route path='/articles' component={ArticleView} />
                         <Route path='/notes' component={NotesView} />
-                        {/*<ArticleView>aaa</ArticleView>*/}
-                        {/*<NotesView>bbb</NotesView>*/}
-                        {/*<TwitterView>ccc</TwitterView>*/}
-                        {/*<ListWrapper items={this.state.items} />*/}
-                        {/*<Form submitFn={this.addItem} />*/}
                     </Switch>
                     {isModalOpen && <Modal closeModalFn={this.closeModal} />}
-                </>
+                </AppContext.Provider>
             </BrowserRouter>
         );
     }
