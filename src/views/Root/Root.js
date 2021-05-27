@@ -49,6 +49,7 @@ class Root extends React.Component {
         article: [],
         note: [],
         isModalOpen: false,
+        name: '1'
     };
 
     addItem = (e, newItem) => {
